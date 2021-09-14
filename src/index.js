@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { ButtonToolbar, MenuItem, DropdownButton } from "react-bootstrap";
+import { ButtonToolbar, DropdownButton } from "react-bootstrap";
 
 class Box extends React.Component {
   selectBox = () => {
@@ -45,7 +45,7 @@ class Grid extends React.Component {
     }
 
     return (
-      <div className="grid" style={{ width: width }}>
+      <div className="grid" style={{ width: width, maxWidth: '80vw' }}>
         {rowsArr}
       </div>
     );
@@ -239,8 +239,9 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>The Game of Life</h1>
+      <div style={{padding: "1rem"}}>
+        <h1 style={{marginTop: 0}}>The Game of Life</h1>
+        <p style={{marginTop: 10, color: 'darkgreen', textAlign: 'center'}}>it is a cellular automaton devised by the British mathematician John Horton Conway in 1970.It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.</p>
         <Buttons
           playButton={this.playButton}
           pauseButton={this.pauseButton}
@@ -256,7 +257,7 @@ class Main extends React.Component {
           cols={this.cols}
           selectBox={this.selectBox}
         />
-        <h2>Generation: {this.state.generation}</h2>
+        <h2 style={{color: 'darkgreen'}}>Generation: {this.state.generation}</h2>
       </div>
     );
   }
